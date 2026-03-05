@@ -1,0 +1,114 @@
+/* ===== FUNDO ===== */
+body {
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* ===== CAIXA ===== */
+.calculadora {
+  background-color: #111;
+  padding: 25px;
+  border-radius: 25px;
+  width: 330px;
+  box-shadow: 0 0 20px #fff;
+  text-align: center;
+}
+
+/* ===== TÍTULO ===== */
+.calculadora h1 {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+/* ===== VISOR ===== */
+#visor {
+  width: 100%;
+  height: 60px;
+  font-size: 26px;
+  text-align: right;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #000;
+  color: #fff;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px #fff inset;
+}
+
+/* ===== TECLADO ===== */
+.teclado {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+/* ===== BOTÃO BASE ===== */
+.btn {
+  position: relative;
+  height: 65px;
+  font-size: 20px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background-color: #1a1a1a;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* ===== BORDA LED ANIMADA SUAVE ===== */
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: conic-gradient(
+    transparent 0deg,
+    rgba(255,255,255,0.9) 40deg,
+    transparent 80deg
+  );
+  animation: girarBorda 4s linear infinite;
+  z-index: -1;
+}
+
+/* Camada interna para manter o botão intacto */
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background: #1a1a1a;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+/* ===== PAUSA NO HOVER ===== */
+.btn:hover::before {
+  animation: none;
+}
+
+/* ===== ANIMAÇÃO (apenas a luz gira, não o botão) ===== */
+@keyframes girarBorda {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ===== BOTÃO ZERO ===== */
+.zero {
+  grid-column: span 2;
+  border-radius: 30px;
+}
+
+/* ===== BOTÃO IGUAL ===== */
+.grande {
+  grid-column: span 4;
+  border-radius: 15px;
+}
+
+.igual::before {
+  border-radius: 15px;
+}
