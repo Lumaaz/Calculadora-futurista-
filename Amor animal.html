@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pet Shop Amor Animal</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:#f5f5f5;
+}
+
+header{
+background:url("https://images.unsplash.com/photo-1518717758536-85ae29035b6d");
+background-size:cover;
+background-position:center;
+color:white;
+text-align:center;
+padding:120px 20px;
+}
+
+header h1{
+font-size:50px;
+background:rgba(0,0,0,0.5);
+display:inline-block;
+padding:10px 20px;
+border-radius:10px;
+}
+
+nav{
+background:#333;
+padding:15px;
+text-align:center;
+}
+
+nav a{
+color:white;
+margin:15px;
+text-decoration:none;
+font-weight:bold;
+font-size:18px;
+}
+
+nav a:hover{
+color:#ff7f32;
+}
+
+section{
+padding:40px;
+text-align:center;
+}
+
+.produtos{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+}
+
+.card{
+background:white;
+width:220px;
+padding:15px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.card img{
+width:100%;
+height:160px;
+object-fit:cover;
+border-radius:10px;
+}
+
+button{
+background:#ff7f32;
+border:none;
+color:white;
+padding:10px;
+margin-top:10px;
+cursor:pointer;
+border-radius:5px;
+}
+
+button:hover{
+background:#ff5c00;
+}
+
+#carrinho{
+position:fixed;
+top:20px;
+right:20px;
+background:white;
+padding:15px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.2);
+width:200px;
+}
+
+footer{
+background:#333;
+color:white;
+padding:20px;
+text-align:center;
+margin-top:40px;
+}
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25d366;
+color:white;
+padding:15px;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🐾 Pet Shop Amor Animal</h1>
+<p>Cuidando do seu pet com amor</p>
+</header>
+
+<nav>
+<a href="#">Início</a>
+<a href="#">Produtos</a>
+<a href="#">Serviços</a>
+<a href="#">Contato</a>
+</nav>
+
+<div id="carrinho">
+<h3>🛒 Carrinho</h3>
+<ul id="listaCarrinho"></ul>
+<p><b>Total: R$ <span id="total">0</span></b></p>
+</div>
+
+<section>
+
+<h2>Acessórios para Cachorros 🐶</h2>
+
+<div class="produtos">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1583511655826-05700d52f4d9">
+<h3>Coleira</h3>
+<p>R$ 29</p>
+<button onclick="addCarrinho('Coleira',29)">Adicionar</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1558788353-f76d92427f16">
+<h3>Peitoral</h3>
+<p>R$ 39</p>
+<button onclick="addCarrinho('Peitoral',39)">Adicionar</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb">
+<h3>Roupa Pet</h3>
+<p>R$ 49</p>
+<button onclick="addCarrinho('Roupa Pet',49)">Adicionar</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1598133894008-61f7fdb8cc3a">
+<h3>Brinquedo</h3>
+<p>R$ 19</p>
+<button onclick="addCarrinho('Brinquedo',19)">Adicionar</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1601758003122-68ecf8d7b0b5">
+<h3>Cama Pet</h3>
+<p>R$ 89</p>
+<button onclick="addCarrinho('Cama Pet',89)">Adicionar</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1558944351-cb3f9f6b9c8f">
+<h3>Laço</h3>
+<p>R$ 14</p>
+<button onclick="addCarrinho('Laço',14)">Adicionar</button>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Serviços</h2>
+
+<p>🛁 Banho</p>
+<p>✂️ Tosa</p>
+<p>💉 Veterinário</p>
+
+</section>
+
+<section>
+
+<h2>Contato</h2>
+
+<p>📍 Belo Horizonte - MG</p>
+<p>📞 WhatsApp: (31) 99999-9999</p>
+
+</section>
+
+<footer>
+<p>© 2026 Pet Shop Amor Animal</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/5531999999999">WhatsApp</a>
+
+<script>
+
+let total = 0;
+
+function addCarrinho(nome,preco){
+
+let lista = document.getElementById("listaCarrinho");
+
+let item = document.createElement("li");
+
+item.textContent = nome + " - R$ " + preco;
+
+lista.appendChild(item);
+
+total += preco;
+
+document.getElementById("total").textContent = total;
+
+}
+
+</script>
+
+</body>
+</html>
